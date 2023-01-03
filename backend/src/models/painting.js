@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const PaintingSchema = new Schema({
+    imgsrc: { type: String, required: true },
     title: { type: String, required: true},
     painter:{ type: String, required: true},
     material:{ type: String, required: true},

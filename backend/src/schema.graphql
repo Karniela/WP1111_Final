@@ -1,9 +1,17 @@
 type Query {
+  artworks: [Artwork!]!
+  artists: [Artist!]!
+  artwork: Artwork!
+  artist: Artist!
 }
 
-type artwork {
+type Artwork {
   name: String!
   artist: Artist!
   date: String!
   price: Float!
+}
+
+type Artist {
+  name: String!
 }
