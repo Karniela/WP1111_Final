@@ -9,7 +9,7 @@ const PaintingSchema = new Schema({
     auction_date:{ type: String, required: false},
     auction_house:{ type: String, required: false},
     area:{ type: Number, required: true},
-    priceCentermiter:{ type: Number, required: true}
+    priceCentimeter:{ type: Number, required: true}
 
 })
 const Painting = mongoose.model('user', PaintingSchema)

@@ -1,0 +1,9 @@
+type Query {
+}
+
+type artwork {
+  name: String!
+  artist: Artist!
+  date: String!
+  price: Float!
+}
