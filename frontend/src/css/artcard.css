@@ -1,0 +1,48 @@
+.images{
+    width:250px;
+    height:200px;
+    position:relative;
+}
+.container{
+    position:relative;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    width:250px;
+    height:325px;
+
+}
+.container:hover{
+    cursor: pointer;
+}
+
+.description{
+    position:relative;
+    
+    height:100px;
+    display:flex;
+}
+.left-gap{
+    background-color:red;
+    height:100%;
+    width:10px;
+}
+.right-column{
+    height:100%;
+    width:240px;
+    
+    display:flex;
+    flex-direction: column;
+    
+}
+.Title{
+    height:30px;
+    font-size:1.5em;
+    font-weight: bold;
+    padding-left:10px;
+
+}
+.Painter{
+    height:30px;
+    font-size:0.9em;
+    font-weight:300;
+    padding-left: 10px;
+}

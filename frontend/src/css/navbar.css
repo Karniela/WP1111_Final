@@ -1,0 +1,129 @@
+:root {
+    --FontStyle: "Noto Sans";
+}
+
+.navbar{
+    position:relative;
+    height:6em;
+    width:100%;
+    display:flex;
+}
+.left-navbar{
+    position:relative;
+    height:100%;
+    width:30%;
+    display:flex;
+    justify-content: flex;
+    align-items: center;
+}
+.search{
+    position:relative;
+    height:50%;
+    width:60%;
+    background-color: white;
+    margin-left:7%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.search-text{
+    position:relative;
+    height:65%;
+    width:80%;
+}
+.search-button{
+    position:relative;
+    background-color:red;
+    height:7%;
+    width:20%;
+}
+.search-text:focus{
+    outline:none;
+}
+.search-text::placeholder{
+    text-align: justify;
+    font-family: var(--FontStyle)
+}
+.right-navbar{
+    position:relative;
+    height:100%;
+    width:70%;
+    display:flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+.right-navbar  :hover{
+    text-decoration-line:underline;
+    cursor:pointer;
+}
+.logo-container{
+    position:relative;
+    height:60%;
+    width:23%;
+    margin-left:6%;
+    text-align: center;
+}
+.logo-container:hover{
+    cursor:pointer;
+}
+.collections{
+    height:60%;
+    width:17%;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-style:solid;
+    border-width:0.1px;
+    border-color:gray;
+    font-family: var(--FontStyle)
+}
+.artists{
+    height:60%;
+    width:10%;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-style:solid;
+    border-width:0.1px;
+    border-color:gray;
+    font-family: var(--FontStyle)
+}
+.artworks{
+    height:60%;
+    width:11.5%;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-style:solid;
+    border-width:0.1px;
+    border-color:gray;
+    font-family: var(--FontStyle)
+}
+.login{
+    height:60%;
+    width:10%;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-style:solid;
+    border-width:0.1px;
+    border-color:gray;
+    margin-right:3%;
+    font-family: var(--FontStyle)
+}
+.signup{
+    height:60%;
+    width:18%;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-style:solid;
+    border-width:0.1px;
+    border-color:gray;
+    font-family: var(--FontStyle)
+}
