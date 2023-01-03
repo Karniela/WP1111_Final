@@ -9,7 +9,6 @@ const Artistcard = ({picture,name,key}) => {
             </div>
             <br></br>
             <div className="description">
-                <div className="left-gap2"></div>
                 <div className="right-column">
                     <div className="Title">{name}</div>
                 </div>

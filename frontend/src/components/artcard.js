@@ -9,7 +9,7 @@ const Artcard = ({picture,title,painter, key}) => {
             </div>
             <br></br>
             <div className="description">
-                <div className="left-gap"></div>
+                
                 <div className="right-column">
                     <div className="Title">{title}</div>
                     <div className="Painter">{painter}</div>

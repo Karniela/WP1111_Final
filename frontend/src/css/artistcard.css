@@ -5,7 +5,7 @@
 }
 .container{
     position:relative;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    
     width:250px;
     height:325px;
 
@@ -20,11 +20,7 @@
     height:100px;
     display:flex;
 }
-.left-gap2{
-    background-color:blue;
-    height:100%;
-    width:10px;
-}
+
 .right-column{
     height:100%;
     width:240px;

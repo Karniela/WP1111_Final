@@ -1,30 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 :root {
-    --FontStyle: "Noto Sans";
+    --FontStyle: 'Raleway', sans-serif;
 }
 
-.navbar{
+.navbar-expand-md{
+    
     position:relative;
     height:6em;
     width:100%;
     display:flex;
+    justify-content: space-between;
+    background-color: black;
+
 }
+.logo-container{
+    margin-left: 10px;
+    height:50px;
+    
+}
+/*
 .left-navbar{
     position:relative;
     height:100%;
-    width:30%;
+    width:400px;
     display:flex;
     justify-content: flex;
     align-items: center;
-}
+}*/
+
 .search{
     position:relative;
     height:50%;
-    width:60%;
-    background-color: white;
-    margin-left:7%;
+    background-color: black;
+    
     display:flex;
     justify-content: flex-start;
     align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+   
 }
 .search-text{
     position:relative;
@@ -44,13 +58,53 @@
     text-align: justify;
     font-family: var(--FontStyle)
 }
-.right-navbar{
+
+.navbar-collapse {
+    justify-content: flex-end;
+    color: white;
+}
+
+.navbar-nav{
+    margin-right: 10px;
+}
+
+.nav-link,
+.navbar-brand :hover {
+    cursor: pointer;
+    color: white;
+}
+
+.nav-item {
+    text-decoration: none !important; 
+    margin-right: 1em !important;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--FontStyle);
+    color: white;
+    
+}
+.nav-item:hover {
+    cursor: pointer;
+
+}
+.nav-link:hover {
+    cursor: pointer;
+    color: white;
+}
+a:visited,
+a:focus{text-decoration: none !important;}
+
+
+
+/*.right-navbar{
     position:relative;
     height:100%;
-    width:70%;
+    width:800px;
     display:flex;
     justify-content:flex-end;
-    align-items: center;
+    align-items: end;
 }
 .right-navbar  :hover{
     text-decoration-line:underline;
@@ -59,7 +113,7 @@
 .logo-container{
     position:relative;
     height:60%;
-    width:23%;
+    width:100px;
     margin-left:6%;
     text-align: center;
 }
@@ -126,4 +180,4 @@
     border-width:0.1px;
     border-color:gray;
     font-family: var(--FontStyle)
-}
+}*/

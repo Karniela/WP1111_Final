@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 :root {
-    --FontStyle: "Noto Sans";
+    --FontStyle: 'Raleway', sans-serif;
 }
 .featured{
     position:relative;
+    justify-content: space-between;
 }
 .featured-heading{
     position:relative;
+    align-items: center;
+    justify-content: space-between;
     padding-left:2%;
     font-family: var(--FontStyle);
 }
