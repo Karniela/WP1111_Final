@@ -1,4 +1,4 @@
-const Query = {
+export const Query = {
   // searching
   featured: async (parent, data, { Painting }, info) => {
     return await Painting.find({}).limit(4).exec();
@@ -29,11 +29,9 @@ const Query = {
   },
 
   artwork: async (parent, { id }, { Painting }, info) => {
-    return Painting.findById(id).exec();
+    return await Painting.findById(id).exec();
   },
   artist: async (parent, { id }, { Painter }, info) => {
     return Painter.findById(id).exec();
   }
 };
-
-export default Query

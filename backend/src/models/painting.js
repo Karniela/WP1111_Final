@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const PaintingSchema = new Schema({
     imgURL: { type: String, required: true },
     title: { type: String, required: true},
-    painter:{ type: String, required: true},
+    artist:{ type: String, required: true},
     material:{ type: String, required: true},
     dimension:{ type: String, required: true},
     price:{ type: Number, required: true},
@@ -11,8 +11,7 @@ const PaintingSchema = new Schema({
     auction_house:{ type: String, required: false},
     area:{ type: Number, required: true},
     priceCentimeter:{ type: Number, required: true}
-
 })
-PaintingSchema.index({title: "text", painter: "text"})
-const Painting = mongoose.model('user', PaintingSchema)
+PaintingSchema.index({title: "text", artist: "text"})
+const Painting = mongoose.model('paintings', PaintingSchema)
 export default Painting
