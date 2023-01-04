@@ -27,14 +27,18 @@ const Artworks = () => {
     }
     return(
         <>
+
             <Navbar />
-            <h1>The Best Arts Gather Here</h1>
-            <br></br>
-            <div className="art-container">
-                {art.map(({id,picture,title,painter}) => (
-                    <Artcard picture={picture} title={title} painter={painter} key={id} id={id} handleClick={handleClick} />
-                ))}
-            </div>
+            <div className="gap"></div>
+            <section class="text-center" >
+            <h3 class="mb-5"className="featured-heading"><strong>All Artwork</strong></h3>
+            <div className="gap"></div>
+            <div class="row">   
+            {art.map(({id, picture,title,painter}) => (
+                 <Artcard picture={picture} title={title} painter={painter} key={id} id={id} handleClick={handleClick} />
+            ))}    
+            </div>         
+        </section>
         </>    
     )
 }

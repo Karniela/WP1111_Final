@@ -29,13 +29,17 @@ const Artists = () => {
     return(
         <>
             <Navbar />
-            <h1>We Find The Most Capable Artists For You</h1>
-            <br></br>
-            <div className="art-container">
-                {artist.map(({id,picture,name}) => (
+            
+            <div className="gap"></div>
+            <section class="text-center" >
+            <h3 class="mb-5"className="featured-heading"><strong>All Artists</strong></h3>
+            <div className="gap"></div>
+            <div class="row">   
+            {artist.map(({id,picture,name}) => (
                     <Artistcard picture={picture} name={name} key={id} id={id} toArtist={toArtist} />
-                ))}
-            </div>
+                ))}  
+            </div>         
+        </section>
         </>    
     )
 }
