@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const PaintingSchema = new Schema({
-    imgsrc: { type: String, required: true },
+    imgURL: { type: String, required: true },
     title: { type: String, required: true},
     painter:{ type: String, required: true},
     material:{ type: String, required: true},
@@ -13,5 +13,6 @@ const PaintingSchema = new Schema({
     priceCentimeter:{ type: Number, required: true}
 
 })
+PaintingSchema.index({title: "text", painter: "text"})
 const Painting = mongoose.model('user', PaintingSchema)
 export default Painting

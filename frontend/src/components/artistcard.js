@@ -1,9 +1,9 @@
 import example from '../pictures/example.jpg'
 import '../css/artistcard.css'
 
-const Artistcard = ({picture,name,key}) => {
+const Artistcard = ({id,picture,name,key,toArtist}) => {
     return(
-        <div className="container" key={key}>
+        <div className="container" key={key} id={id} onClick={() => toArtist(id)}>
             <div className="images">
                 <img src={picture}></img>
             </div>

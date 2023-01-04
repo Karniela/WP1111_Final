@@ -1,0 +1,44 @@
+.description{
+    position:relative;
+    width:100%;
+    height:45em;
+    display:flex;
+    flex-direction: row;
+}
+.left{
+    position:relative;
+    width:50%;
+    border-right:2px solid;
+    display:flex;
+    flex-direction: column;
+    gap:1em;
+    padding-left : 1em;
+    padding-top : 2em;
+}
+.right{
+    position:relative;
+    background-color:white;
+    width:50%;
+}
+.picture{
+    position:relative;
+    height:70%;
+    width:90%;
+}
+h1{
+    padding-left:2%;
+    position:relative;
+}
+.info{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height:80%;
+    width:80%;
+    padding-top:5%;
+    padding-left:2%;
+}
+.info > p {
+    font-size:1.5em;
+}

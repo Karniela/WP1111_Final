@@ -5,9 +5,11 @@ import Signup from './containers/signup';
 import Collections from './containers/collections';
 import Artworks from './containers/artworks';
 import Artists from './containers/artists';
+import Description from './containers/description';
 import { React, useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SuccessSignUp from './containers/successSignUp';
+import Artist from './containers/artist';
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/success" element={<SuccessSignUp/>} />
+                <Route path="/description/:id" element={<Description/>} />
+                <Route path="/artist/:id" element={<Artist/>} />
             </Routes>
 
         </Router>

@@ -1,17 +1,29 @@
 type Query {
-  artworks: [Artwork!]!
-  artists: [Artist!]!
-  artwork: Artwork!
-  artist: Artist!
+  featured: [Artwork]!
+  newest: [Artwork]!
+  artworks(input: String!): [Artwork]!
+  artists(input: String!): [Artist]!
+  artwork(id: ID!): Artwork!
+  artist(id: ID!): Artist!
 }
 
 type Artwork {
+  id: ID!
   name: String!
+  picture: String!
   artist: Artist!
   date: String!
   price: Float!
+  material: String!
+  size: String!
+  auction_house: String!
+  area: Number!
+  priceCentimeter: String!
 }
 
 type Artist {
+  id: ID!
   name: String!
+  picture: String!
+  description: String!
 }
