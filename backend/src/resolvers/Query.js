@@ -9,22 +9,28 @@ export const Query = {
   },
 
   artworks: async (parent, { input }, { Painting }, info) => {
-    // const keywords = input.split(/\s/);
-    const results = 
-        input 
-          ?await Painting.find({ $text : { $search : input } }).exec()
-          :await Painting.find({});
-    console.log(results);
+    if (!/\S/.test(input)) { // only white spaces
+      return await Painting.find({});
+    }
+    // const artwork_search = { $text : { $search : input } };
+    // const artist_name_match = { artist: new RegExp(input, "i") };
+    // const artist_name_include = input.split(/\s/).map((kw) => ({ artist: new RegExp(kw, "i") }));
+    // console.log([ 
+    //   artwork_search, 
+    //   artist_name_match, 
+    //   ...artist_name_include
+    // ]);
+    const results = await Painting.find({ $text : { $search : input } });
     return results;
   },
 
   artists: async (parent, { input }, { Painter }, info) => {
-    // const keywords = input.split(/\s/);
+    console.log(Painter, "\n\n");
+    console.log(await Painter.find({}).count());
     const results = 
         input 
           ?await Painter.find({ name: new RegExp(input, "i") }).exec()
           :await Painter.find({});
-    console.log(results);
     return results;
   },
 

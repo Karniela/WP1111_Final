@@ -1,8 +1,5 @@
 export const Artwork = {
-  id: (parent) => {
-    console.log(parent);
-    return parent._id;
-  },
+  id: (parent) => (parent._id),
   title: (parent) => (parent.title),
   imgURL: (parent) => (parent.imgURL),
   artist: (parent) => (parent.artist), 

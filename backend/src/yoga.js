@@ -1,6 +1,6 @@
 import { createPubSub, createSchema, createYoga } from 'graphql-yoga'
 import * as fs from 'fs'
-import { Artist, Artwork, Query } from './resolvers'
+import { Artist, Artwork, Query, Mutation } from './resolvers'
 import Painter from './models/painter'
 import Painting from './models/painting'
 
@@ -14,7 +14,7 @@ export const yoga = createYoga({
     ),
     resolvers: {
       Query,
-      // Mutation,
+      Mutation,
       // Subscription,
       Artist,
       Artwork,

@@ -2,8 +2,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const PainterSchema = new Schema({
     name: { type: String, required: true },
-    imgURL: { type: String },
+    imgsrc: { type: String },
     description: { type: String },
-})
+}, { collection: 'painter'})
 const Painter = mongoose.model('painter', PainterSchema)
 export default Painter

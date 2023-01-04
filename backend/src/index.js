@@ -1,6 +1,5 @@
-import mongo from './mongo.js';
-import server from './server.js';
-import "dotenv-defaults/config.js";
+import mongo from './mongo';
+import server from './server';
 
 mongo.connect();
 

@@ -7,6 +7,10 @@ type Query {
   artist(id: ID!): Artist!
 }
 
+type Mutation {
+  addArtist(name: String!): Artist!
+}
+
 type Artwork {
   id: ID!
   title: String!
@@ -17,13 +21,13 @@ type Artwork {
   price: Float!
   auction_date: String!
   auction_house: String!
-  area: Int!
+  area: Float!
   priceCentimeter: String!
 }
 
 type Artist {
   id: ID!
   name: String!
-  imgURL: String!
-  description: String!
+  imgURL: String
+  description: String
 }
