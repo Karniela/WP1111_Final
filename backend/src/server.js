@@ -1,10 +1,27 @@
 import { createServer } from 'node:http'
 import { useServer } from 'graphql-ws/lib/use/ws'
 import { WebSocketServer } from 'ws'
+import express from 'express'
+import cors from "cors";
 import { yoga } from './yoga'
-import mongo from './mongo'
 
-const server = createServer(yoga);
+const app = express();
+/*
+if (process.env.NODE_ENV === "development") {
+  app.use(cors());
+}
+*/
+app.use(cors());
+app.use('/graphql', yoga);
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve();
+  app.use(express.static(path.join(__dirname, "../frontend", "build")));
+  app.get("/*", function (_, res) {
+    res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+  });
+}
+
+const server = createServer(app);
 const wsServer = new WebSocketServer({
   server,
   path: yoga.graphqlEndpoint,
@@ -43,9 +60,4 @@ useServer(
   wsServer,
 );
 
-mongo.connect();
-
-const port = process.env.PORT || 4000;
-server.listen({port}, () => {
-  console.log(`The server is up on port ${port}!`);
-});
+export default server
