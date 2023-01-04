@@ -1,4 +1,4 @@
-const Artwork = {
+export const Artwork = {
   id: (parent) => (parent._id),
   name: (parent) => (parent.title),
   picture: (parent) => (parent.imgsrc),
@@ -11,5 +11,3 @@ const Artwork = {
   area: (parent) => (parent.area),
   priceCentimeter: (parent) => (parent.priceCentimeter)
 };
-
-export default Artwork

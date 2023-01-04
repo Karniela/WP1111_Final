@@ -19,11 +19,11 @@ type Painting {
     painter: Painter!
     material: String!
     dimension: String!
-    price: Number!
+    price: Float!
     auction_date: String!
     auction_house: String!
-    area: Number!
-    priceCentermiter: Number!
+    area: Int!
+    priceCentermiter: Float!
     
 }
 

@@ -11,8 +11,7 @@ const PaintingSchema = new Schema({
     auction_house:{ type: String, required: false},
     area:{ type: Number, required: true},
     priceCentimeter:{ type: Number, required: true}
-
 })
 PaintingSchema.index({title: "text", painter: "text"})
-const Painting = mongoose.model('user', PaintingSchema)
+const Painting = mongoose.model('Painting', PaintingSchema)
 export default Painting

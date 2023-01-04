@@ -17,7 +17,7 @@ type Artwork {
   material: String!
   size: String!
   auction_house: String!
-  area: Number!
+  area: Int!
   priceCentimeter: String!
 }
 
