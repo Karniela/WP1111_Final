@@ -1,12 +1,15 @@
 export const Artwork = {
-  id: (parent) => (parent._id),
-  name: (parent) => (parent.title),
-  picture: (parent) => (parent.imgsrc),
-  artist: (parent) => (parent.painter), 
-  date: (parent) => (parent.auction_date), 
-  price: (parent) => (parent.price),
+  id: (parent) => {
+    console.log(parent);
+    return parent._id;
+  },
+  title: (parent) => (parent.title),
+  imgURL: (parent) => (parent.imgURL),
+  artist: (parent) => (parent.artist), 
   material: (parent) => (parent.material),
-  size: (parent) => (parent.dimension),
+  dimension: (parent) => (parent.dimension),
+  price: (parent) => (parent.price),
+  auction_date: (parent) => (parent.auction_date), 
   auction_house: (parent) => (parent.auction_house),
   area: (parent) => (parent.area),
   priceCentimeter: (parent) => (parent.priceCentimeter)

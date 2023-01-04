@@ -29,7 +29,7 @@ export const Query = {
   },
 
   artwork: async (parent, { id }, { Painting }, info) => {
-    return Painting.findById(id).exec();
+    return await Painting.findById(id).exec();
   },
   artist: async (parent, { id }, { Painter }, info) => {
     return Painter.findById(id).exec();

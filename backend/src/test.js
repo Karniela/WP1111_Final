@@ -2,6 +2,7 @@ import { createServer } from 'node:http'
 import { useServer } from 'graphql-ws/lib/use/ws'
 import { WebSocketServer } from 'ws'
 import { yoga } from './yoga'
+import mongo from './mongo';
 
 const server = createServer(yoga);
 const wsServer = new WebSocketServer({
@@ -41,6 +42,8 @@ useServer(
   },
   wsServer,
 );
+
+mongo.connect();
 
 const port = process.env.PORT || 4000;
 server.listen({port}, () => {

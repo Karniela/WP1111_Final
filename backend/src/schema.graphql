@@ -9,13 +9,13 @@ type Query {
 
 type Artwork {
   id: ID!
-  name: String!
-  picture: String!
-  artist: Artist!
-  date: String!
-  price: Float!
+  title: String!
+  imgURL: String!
+  artist: String!
   material: String!
-  size: String!
+  dimension: String!
+  price: Float!
+  auction_date: String!
   auction_house: String!
   area: Int!
   priceCentimeter: String!
@@ -24,6 +24,6 @@ type Artwork {
 type Artist {
   id: ID!
   name: String!
-  picture: String!
+  imgURL: String!
   description: String!
 }

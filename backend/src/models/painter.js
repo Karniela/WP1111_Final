@@ -5,5 +5,5 @@ const PainterSchema = new Schema({
     imgURL: { type: String },
     description: { type: String },
 })
-const Painter = mongoose.model('Painter', PainterSchema)
+const Painter = mongoose.model('painter', PainterSchema)
 export default Painter
