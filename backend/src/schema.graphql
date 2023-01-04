@@ -5,10 +5,19 @@ type Query {
   artists(input: String!): [Artist]!
   artwork(id: ID!): Artwork!
   artist(id: ID!): Artist!
+  user(token: String!): User
 }
 
 type Mutation {
-  addArtist(name: String!): Artist!
+  userSignup(input: SignUpInfo!): SignUpResult!
+  userLogin(email: String!, pwd: String!): LoginResult!
+}
+
+input SignUpInfo {
+  first_name: String!
+  last_name: String!
+  email: String!
+  pwd: String!
 }
 
 type Artwork {
@@ -30,4 +39,21 @@ type Artist {
   name: String!
   imgURL: String
   description: String
+}
+
+type User {
+  id: ID!
+  first_name: String!
+  last_name: String!
+  email: String!
+}
+
+type LoginResult {
+  message: String!
+  token: String
+}
+
+type SignUpResult {
+  message: String!
+  token: String
 }

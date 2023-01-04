@@ -3,6 +3,7 @@ import * as fs from 'fs'
 import { Artist, Artwork, Query, Mutation } from './resolvers'
 import Painter from './models/painter'
 import Painting from './models/painting'
+import User from './models/user'
 
 const pubsub = createPubSub();
 
@@ -23,7 +24,8 @@ export const yoga = createYoga({
   context: {
     pubsub,
     Painter,
-    Painting
+    Painting,
+    User
   },
   //  graphqlEndpoint: '/',   // uncomment this to send the app to: 4000/
   graphiql: {

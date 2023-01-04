@@ -1,3 +1,5 @@
+import { verifyToken } from "./Utilities";
+
 export const Query = {
   // searching
   featured: async (parent, data, { Painting }, info) => {
@@ -35,9 +37,17 @@ export const Query = {
   },
 
   artwork: async (parent, { id }, { Painting }, info) => {
-    return await Painting.findById(id).exec();
+    return await Painting.findById(id);
   },
   artist: async (parent, { id }, { Painter }, info) => {
-    return Painter.findById(id).exec();
+    return await Painter.findById(id);
+  },
+  user: async (parent, { token }, { User }, info) => {
+    try {
+      return await User.findById(verifyToken(token)._id);
+    } catch(e) {
+      if (e=="JsonWebTokenError") { return {}; }
+      throw e;
+    }
   }
 };
