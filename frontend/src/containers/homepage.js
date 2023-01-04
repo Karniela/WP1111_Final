@@ -8,22 +8,28 @@ import '../css/featured.css'
 import '../css/new.css'
 import Artcard from '../components/artcard'
 import example from '../pictures/example.jpg'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const Homepage = () => {
+    const navigate = useNavigate();
     const [featured, setFeatured] = useState([ //below is just an example of featured's art
-        {picture:example,title:"Monalisa",painter:"Da Vinci"},
-        {picture:example,title:"Mountain",painter:"Jason"},
-        {picture:example,title:"Sun Moon Lake",painter:"Tania"},
-        {picture:example,title:"A-li Shan",painter:"廖雅淇"},
+        {id:1,picture:example,title:"Monalisa",painter:"Da Vinci"},
+        {id:2,picture:example,title:"Mountain",painter:"Jason"},
+        {id:3,picture:example,title:"Sun Moon Lake",painter:"Tania"},
+        {id:4,picture:example,title:"A-li Shan",painter:"廖雅淇"},
         
     ])
     const [newest, setNewest] = useState([
-        {picture:example,title:"Monalisa",painter:"Da Vinci"},
-        {picture:example,title:"Mountain",painter:"Jason"},
-        {picture:example,title:"Sun Moon Lake",painter:"Tania"},
-        {picture:example,title:"A-li Shan",painter:"廖雅淇"},
+        {id:1,picture:example,title:"Monalisa",painter:"Da Vinci"},
+        {id:2,picture:example,title:"Mountain",painter:"Jason"},
+        {id:3,picture:example,title:"Sun Moon Lake",painter:"Tania"},
+        {id:4,picture:example,title:"A-li Shan",painter:"廖雅淇"},
        
     ])
+    const handleClick = (key) => {
+        navigate(`/description/${key}`)
+        console.log(key)
+    }
     return(
         
         
@@ -50,8 +56,8 @@ const Homepage = () => {
         <div className="featured">
                 <div className="featured-heading"><h1>FEATURED</h1></div>
                 <div className="featured-container">
-                    {featured.map(({picture,title,painter}) => (
-                        <Artcard picture={picture} title={title} painter={painter} key={`${title}-${painter}`} />
+                    {featured.map(({id,picture,title,painter}) => (
+                        <Artcard picture={picture} title={title} painter={painter} key={id} id={id} handleClick={handleClick}/>
                     ))}
                 </div>
             </div>
@@ -59,8 +65,8 @@ const Homepage = () => {
             <div className="new">
                 <div className="new-heading"><h1>NEWEST</h1></div>
                 <div className="new-container">
-                {newest.map(({picture,title,painter}) => (
-                        <Artcard picture={picture} title={title} painter={painter} key={`${title}-${painter}`} />
+                {newest.map(({id,picture,title,painter}) => (
+                        <Artcard picture={picture} title={title} painter={painter} key={id} id={id} handleClick={handleClick}/>
                     ))}
                 </div>
         </div>
