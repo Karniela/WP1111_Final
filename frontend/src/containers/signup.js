@@ -6,6 +6,8 @@ import Logo from '../components/logo'
 import Navbar from '../components/navbar'
 import SignUpForm from '../components/signUpForm'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useMutation } from '@apollo/client'
+import { USERSIGNUP_MUTATION } from '../graphql'
 
 
 const Signup = () => {
@@ -15,6 +17,9 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [valid, setValid] = useState(true) //state to check whether form's datas are valid
     const navigate = useNavigate();
+
+    const [goRegistrate,{data,loading,error}] =  useMutation(USERSIGNUP_MUTATION)
+
     const handleSubmit = (e) => {
         if(firstName==='' || lastName==='' || email==='' || password===''){
             setValid(false)
@@ -26,6 +31,14 @@ const Signup = () => {
         }
         else{
             //send data to backend
+            goRegistrate({variables:{input:{ 
+                    first_name:firstName,
+                    last_name:lastName,
+                    email:email,
+                    pwd:password
+                }
+            }})
+            console.log(data)
             setFirstName('');
             setLastName('');
             setEmail('');

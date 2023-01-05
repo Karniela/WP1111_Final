@@ -6,6 +6,7 @@ import Collections from './containers/collections';
 import Artworks from './containers/artworks';
 import Artists from './containers/artists';
 import Description from './containers/description';
+import Result from './containers/result';
 import { React, useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SuccessSignUp from './containers/successSignUp';
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/success" element={<SuccessSignUp/>} />
                 <Route path="/description/:id" element={<Description/>} />
                 <Route path="/artist/:id" element={<Artist/>} />
+                <Route path="/result/:parameter" element={<Result />} />
             </Routes>
 
         </Router>

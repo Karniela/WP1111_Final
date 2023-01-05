@@ -9,19 +9,32 @@ import SignInForm from '../components/signInForm'
 import Chair from '../pictures/chair.jpg'
 import { useAccount } from './hooks/useAccount'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useMutation } from '@apollo/client'
+import { USERLOGIN_MUTATION } from '../graphql'
 
 const Login = () => {
     const navigate = useNavigate();
+    const [goLogin,messages] =  useMutation(USERLOGIN_MUTATION)
     const {setSignedIn, setUsername} = useAccount();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [valid, setValid] = useState(true)
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         //send to backend and wait for respond
         //if respond is not correct, setValid(false), else navigate and set signed in === true
-        setSignedIn(true)
-        setUsername("Jason") //等一下設成 user sign up 的時候的 First Name
-        navigate('/collections')
+        goLogin({variables:{
+            email:email,
+            pwd:password
+        }})
+        if(messages.data.userLogin.message === "Log in successful"){
+            setSignedIn(true);
+            navigate('/collections')
+            console.log(messages.data)
+        }
+        else{
+            setValid(false)
+            e.preventDefault();
+        }
     }
 
     return(
@@ -34,7 +47,7 @@ const Login = () => {
                     <img src={Chair}></img>
                 </div>
                 <div className="form">
-                    <SignInForm setEmail={setEmail} setPassword={setPassword} valid={valid} handleSubmit={handleSubmit} />
+                    <SignInForm setEmail={setEmail} setPassword={setPassword} valid={valid} handleSubmit={(e)=>handleSubmit(e)} />
                 </div>
             </div>
         </>    
