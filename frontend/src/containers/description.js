@@ -26,8 +26,9 @@ const Description = () => {
         <>
             <Navbar />
             <div class="row">
+                <h2>{data?.artwork.title}</h2>
                 <div class="col-md-6 how-img">
-                    <h2>{data?.artwork.name}</h2>
+                    
                     <img src={data?.artwork.imgURL} class="img-fluid hover-shadow" />
                 </div>
                 <div class="col-md-6"> 
