@@ -4,7 +4,6 @@ import { WebSocketServer } from 'ws'
 import express from 'express'
 import cors from "cors";
 import { yoga } from './yoga'
-import path from 'path'
 
 const app = express();
 /*

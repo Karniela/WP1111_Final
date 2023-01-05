@@ -5,16 +5,16 @@ export const Mutation = {
   //   const newPainter = new Painter({name});
   //   return await newPainter.save();
   // },
-  userSignup: async (parent, { input }, { User }, info) => {
-    if (await User.findOne({ email: input.email})) {
+  userSignup: async (parent, { input }, { UserModel }, info) => {
+    if (await UserModel.findOne({ email: input.email})) {
       return { message: "Error: This email is already used" };
     }
-    const newUser = new User( await initUserInfo(input) );
+    const newUser = new UserModel( await initUserInfo(input) );
     await newUser.save();
     return { message: "Sign up successful", token: newToken(newUser) };
   },
-  userLogin: async (parent, { email, pwd }, { User }, info) => {
-    const user = await User.findOne({ email });
+  userLogin: async (parent, { email, pwd }, { UserModel }, info) => {
+    const user = await UserModel.findOne({ email });
     if (!user) {
       return { message: "Error: This email is not registered yet" };
     }
