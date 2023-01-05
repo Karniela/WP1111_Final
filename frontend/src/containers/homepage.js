@@ -9,23 +9,16 @@ import '../css/new.css'
 import Artcard from '../components/artcard'
 import example from '../pictures/example.jpg'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { FEATURED_QUERY, NEWEST_QUERY } from '../graphql'
+import { useQuery } from '@apollo/client'
 
 const Homepage = () => {
     const navigate = useNavigate();
-    const [featured, setFeatured] = useState([ //below is just an example of featured's art
-        {id:1,picture:example,title:"Monalisa",painter:"Da Vinci"},
-        {id:2,picture:example,title:"Mountain",painter:"Jason"},
-        {id:3,picture:example,title:"Sun Moon Lake",painter:"Tania"},
-        {id:4,picture:example,title:"A-li Shan",painter:"廖雅淇"},
-        
-    ])
-    const [newest, setNewest] = useState([
-        {id:1,picture:example,title:"Monalisa",painter:"Da Vinci"},
-        {id:2,picture:example,title:"Mountain",painter:"Jason"},
-        {id:3,picture:example,title:"Sun Moon Lake",painter:"Tania"},
-        {id:4,picture:example,title:"A-li Shan",painter:"廖雅淇"},
-       
-    ])
+
+    const {data,loading} = useQuery(FEATURED_QUERY)
+    
+    const newest_result = useQuery(NEWEST_QUERY)
+
     const handleClick = (key) => {
         navigate(`/description/${key}`)
         console.log(key)
@@ -54,8 +47,8 @@ const Homepage = () => {
         <section class="text-center" className = "cardContainer">
           <h3 class="mb-5"className="featured-heading"><strong>FEATURED</strong></h3>
             <div class="row">   
-            {featured.map(({id,picture,title,painter}) => (
-                        <Artcard picture={picture} title={title} painter={painter} key={id} id={id} handleClick={handleClick}/>
+            {data?.featured.map(({id,imgURL,title,artist}) => (
+                        <Artcard picture={imgURL} title={title} painter={artist} key={id} id={id} handleClick={handleClick}/>
             ))} 
             </div>         
         </section>
@@ -65,8 +58,8 @@ const Homepage = () => {
         <section class="text-center" className = "cardContainer" >
           <h3 class="mb-5" className="new-heading"><strong>NEWEST</strong></h3>
             <div class="row">   
-            {newest.map(({id,picture,title,painter}) => (
-                        <Artcard picture={picture} title={title} painter={painter} key={id} id={id} handleClick={handleClick}/>
+            {newest_result.data?.newest.map(({id,imgURL,title,artist}) => (
+                        <Artcard picture={imgURL} title={title} painter={artist} key={id} id={id} handleClick={handleClick}/>
                     ))}
             </div>         
         </section>
