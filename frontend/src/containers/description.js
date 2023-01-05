@@ -25,26 +25,52 @@ const Description = () => {
         loading? <p>Loading</p> : 
         <>
             <Navbar />
-            <div className="description">
-                <div className="left">
-                    <h1>{data?.artwork.name}</h1>
-                    <div className="picture">
-                        <img src={data?.artwork.imgURL}></img>
-                    </div>
+            <div class="row">
+                <div class="col-md-6 how-img">
+                    <h2>{data?.artwork.name}</h2>
+                    <img src={data?.artwork.imgURL} class="img-fluid hover-shadow" />
                 </div>
-                <div className="right">
-                    <div className="info">
-                        <p>Create by : {data?.artwork.artist}</p>
-                        <p>Date : {data?.artwork.auction_date}</p>
-                        <p>Price : {data?.artwork.price}</p>
-                        <p>Material : {data?.artwork.material}</p>
-                        <p>Size : {data?.artwork.dimension}</p>
-                        <p>Auction House : {data?.artwork.auction_house}</p>
-                        <p>Area : {data?.artwork.area}</p>
-                        <p>Price Centimeter : {data?.artwork.priceCentimeter}</p>
-                    </div>
+                <div class="col-md-6"> 
+                <table class="table">
+                <tbody>
+                <tr>
+                    <th>Creator</th>
+                    <td>{data?.artwork.artist}</td>
+                </tr>
+                <tr>
+                    <th>Auction Date</th>
+                    <td>{data?.artwork.auction_date}</td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+          	        <td>{data?.artwork.price}</td>
+                </tr>
+                <tr>
+                    <th>Material</th>
+          	        <td>{data?.artwork.material}</td>
+                </tr>
+                <tr>
+                    <th>Size</th>
+          	        <td>{data?.artwork.dimension}</td>
+                </tr>
+                <tr>
+                    <th>Auction Hous</th>
+          	        <td>{data?.artwork.auction_house}</td>
+                </tr>
+                <tr>
+                    <th>Area</th>
+          	        <td>{data?.artwork.area}</td>
+                </tr>
+                <tr>
+                    <th>Price Centimeter</th>
+          	        <td>{data?.artwork.priceCentimeter}</td>
+                </tr>
+                </tbody>
+                </table>
+                    
                 </div>
             </div>
+            
         </>   
     )
 }
