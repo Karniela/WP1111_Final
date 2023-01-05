@@ -3,11 +3,11 @@ import { verifyToken } from "./Utilities";
 export const Query = {
   // searching
   featured: async (parent, data, { Painting }, info) => {
-    return await Painting.find({}).limit(4).exec();
+    return await Painting.find({}).limit(3);
   },
 
   newest: async (parent, data, { Painting }, info) => {
-    return await Painting.find({}).sort({ auction_date: -1 }).limit(4).exec();
+    return await Painting.find({}).sort({ auction_date: -1 }).limit(3);
   },
 
   artworks: async (parent, { input }, { Painting }, info) => {
@@ -27,11 +27,9 @@ export const Query = {
   },
 
   artists: async (parent, { input }, { Painter }, info) => {
-    console.log(Painter, "\n\n");
-    console.log(await Painter.find({}).count());
     const results = 
         input 
-          ?await Painter.find({ name: new RegExp(input, "i") }).exec()
+          ?await Painter.find({ name: new RegExp(input, "i") })
           :await Painter.find({});
     return results;
   },
@@ -44,9 +42,9 @@ export const Query = {
   },
   user: async (parent, { token }, { User }, info) => {
     try {
-      return await User.findById(verifyToken(token)._id);
+      return await User.findById(verifyToken(token)._id, "-hashed_pwd");
     } catch(e) {
-      if (e=="JsonWebTokenError") { return {}; }
+      if (e=="JsonWebTokenError: invalid token") { return; }
       throw e;
     }
   }
