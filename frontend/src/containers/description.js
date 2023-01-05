@@ -10,11 +10,14 @@ import { useNavigate, useLocation, useParams } from 'react-router-dom'
 import { useAccount } from './hooks/useAccount'
 import example from '../pictures/example.jpg'
 import '../css/description.css'
+import { ARTISTS_QUERY } from '../graphql'
+import { useQuery } from '@apollo/client'
 
 const Description = () => {
     const { id } = useParams() //get the id from the parameter of link
     //query artworks by id (backend's part)
     //here I use example result 
+
     
     const [queryResult, setQueryResult] = useState(
         {

@@ -8,6 +8,8 @@ import '../css/artists.css'
 import example from '../pictures/example.jpg'
 import Artistcard from '../components/artistcard'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { ARTISTS_QUERY } from '../graphql'
+import { useQuery } from '@apollo/client'
 
 const Artists = () => {
     const navigate = useNavigate();
@@ -16,17 +18,12 @@ const Artists = () => {
         console.log(id)
     }
 
-    const [artist, setArtist] = useState([
-        {id:1,picture:example,name:"Da Vinci"},
-        {id:2,picture:example,name:"Jason"},
-        {id:3,picture:example,name:"Tania"},
-        {id:4,picture:example,name:"廖雅淇"},
-        {id:5,picture:example,name:"Da Vinci"},
-        {id:6,picture:example,name:"Jason"},
-        {id:7,picture:example,name:"Tania"},
-        {id:8,picture:example,name:"廖雅淇"},
-    ])
+    
+
+    const {data,loading} = useQuery(ARTISTS_QUERY,{variables:{input:""}})
+    
     return(
+        loading?<p>Loading</p>:
         <>
             <Navbar />
             
@@ -35,8 +32,8 @@ const Artists = () => {
             <h3 class="mb-5"className="featured-heading"><strong>All Artists</strong></h3>
             <div className="gap"></div>
             <div class="row">   
-            {artist.map(({id,picture,name}) => (
-                    <Artistcard picture={picture} name={name} key={id} id={id} toArtist={toArtist} />
+            {data?.artists.map(({id,imgURL,name}) => (
+                    <Artistcard picture={imgURL} name={name} key={id} id={id} toArtist={toArtist} />
                 ))}  
             </div>         
         </section>
