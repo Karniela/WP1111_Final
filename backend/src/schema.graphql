@@ -46,6 +46,7 @@ type User {
   first_name: String!
   last_name: String!
   email: String!
+  collection: [Artwork]!
 }
 
 type LoginResult {

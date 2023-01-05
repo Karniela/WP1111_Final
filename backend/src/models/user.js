@@ -5,6 +5,7 @@ const UserSchema = new Schema({
     last_name: { type: String, required: true },
     email: { type: String, required: true },
     hashed_pwd: { type: String, required: true },
+    likes: [ {type: mongoose.Types.ObjectId, ref: "painting"} ]
 }, { collection: 'users'})
-const User = mongoose.model('user', UserSchema)
-export default User
+const UserModel = mongoose.model('user', UserSchema)
+export default UserModel
