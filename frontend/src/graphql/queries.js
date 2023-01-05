@@ -57,3 +57,39 @@ export const SINGLE_ARTIST_QUERY = gql`
         }
     }
 `;
+
+export const FEATURED_QUERY = gql`
+    query featured{
+        featured{
+            id
+            title
+            imgURL
+            artist
+            material
+            dimension
+            price
+            auction_date
+            auction_house
+            area
+            priceCentimeter
+        }
+    }
+`;
+
+export const NEWEST_QUERY = gql`
+    query newest{
+        newest{
+            id
+            title
+            imgURL
+            artist
+            material
+            dimension
+            price
+            auction_date
+            auction_house
+            area
+            priceCentimeter
+        }
+    }
+`;
