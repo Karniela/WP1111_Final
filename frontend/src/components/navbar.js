@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import Logo from "./logo"
 import '../css/navbar.css'
 import { Input, Tag, message} from 'antd'
@@ -16,6 +17,11 @@ const Navbar = () => {
     const backToHome = () => {
         navigate('/')
     }
+    const [searchInput, setSearchInput] = useState('')
+    const handleSearch = () => {
+        setSearchInput('');
+        navigate(`/result/${searchInput}`);
+    } 
     return(
         /*<div className="navbar navbar-expand-md">
             <div className="left-navbar">
@@ -41,6 +47,8 @@ const Navbar = () => {
                     style={{
                         width: '300px',
                     }}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    onSearch={handleSearch}
                 >
                 </Search>
         </div>
