@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import tony from '../videos/tony.mp4'
+import './plotly.js'
 import woman from '../pictures/woman.png'
 import '../css/homepage.css'
 import Logo from '../components/logo'
@@ -12,6 +13,8 @@ import example from '../pictures/example.jpg'
 
 import { SINGLE_ARTIST_QUERY } from '../graphql'
 import { useQuery } from '@apollo/client'
+import Plotly from 'plotly.js-dist';
+
 
 
 const Artist = () => {
@@ -20,9 +23,6 @@ const Artist = () => {
     //here I use example result 
 
     const {data,loading} = useQuery(SINGLE_ARTIST_QUERY,{variables:{id:id}})
-
-    
-    
     
     return (
         loading? <p>Loading</p> : 
@@ -35,7 +35,6 @@ const Artist = () => {
                 </div>
                 <div class="col-md-6"> 
                 <p>{data?.artist.description}</p>
-                    
                 </div>
             </div>
             
