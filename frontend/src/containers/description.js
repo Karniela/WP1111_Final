@@ -10,7 +10,7 @@ import { useNavigate, useLocation, useParams } from 'react-router-dom'
 import { useAccount } from './hooks/useAccount'
 import example from '../pictures/example.jpg'
 import '../css/description.css'
-import { ARTISTS_QUERY } from '../graphql'
+import { SINGLE_ARWORK_QUERY } from '../graphql'
 import { useQuery } from '@apollo/client'
 
 const Description = () => {
@@ -18,42 +18,30 @@ const Description = () => {
     //query artworks by id (backend's part)
     //here I use example result 
 
+    const {data,loading} = useQuery(SINGLE_ARWORK_QUERY,{variables:{id:id}})
+
     
-    const [queryResult, setQueryResult] = useState(
-        {
-            id:id,
-            name:"Monalisa",
-            picture:example,
-            artist:"Da Vinci",
-            date:"2023-10-15",
-            price:500,
-            material:"oil/masonite",
-            size:"154 x 77 cm",
-            auction_house:"Sotheby",
-            area : "Taipei",
-            priceCentimeter:"22500"
-        },
-    )
     return (
+        loading? <p>Loading</p> : 
         <>
             <Navbar />
             <div className="description">
                 <div className="left">
-                    <h1>{queryResult.name}</h1>
+                    <h1>{data?.artwork.name}</h1>
                     <div className="picture">
-                        <img src={example}></img>
+                        <img src={data?.artwork.imgURL}></img>
                     </div>
                 </div>
                 <div className="right">
                     <div className="info">
-                        <p>Create by : {queryResult.artist}</p>
-                        <p>Date : {queryResult.date}</p>
-                        <p>Price : {queryResult.price}</p>
-                        <p>Material : {queryResult.material}</p>
-                        <p>Size : {queryResult.size}</p>
-                        <p>Auction House : {queryResult.auction_house}</p>
-                        <p>Area : {queryResult.area}</p>
-                        <p>Price Centimeter : {queryResult.priceCentimeter}</p>
+                        <p>Create by : {data?.artwork.artist}</p>
+                        <p>Date : {data?.artwork.auction_date}</p>
+                        <p>Price : {data?.artwork.price}</p>
+                        <p>Material : {data?.artwork.material}</p>
+                        <p>Size : {data?.artwork.dimension}</p>
+                        <p>Auction House : {data?.artwork.auction_house}</p>
+                        <p>Area : {data?.artwork.area}</p>
+                        <p>Price Centimeter : {data?.artwork.priceCentimeter}</p>
                     </div>
                 </div>
             </div>

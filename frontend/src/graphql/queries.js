@@ -28,3 +28,21 @@ export const ARTISTS_QUERY = gql`
         }
     }
 `;
+
+export const SINGLE_ARWORK_QUERY = gql`
+    query artwork($id: ID!){
+        artwork(id: $id){
+            id
+            title
+            imgURL
+            artist
+            material
+            dimension
+            price
+            auction_date
+            auction_house
+            area
+            priceCentimeter
+        }
+    }
+`
