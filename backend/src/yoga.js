@@ -1,9 +1,9 @@
 import { createPubSub, createSchema, createYoga } from 'graphql-yoga'
 import * as fs from 'fs'
-import { Artist, Artwork, Query, Mutation } from './resolvers'
+import { Artist, Artwork, User, Query, Mutation } from './resolvers'
 import Painter from './models/painter'
 import Painting from './models/painting'
-import User from './models/user'
+import UserModel from './models/user'
 
 const pubsub = createPubSub();
 
@@ -19,13 +19,14 @@ export const yoga = createYoga({
       // Subscription,
       Artist,
       Artwork,
+      User,
     },
   }),
   context: {
     pubsub,
     Painter,
     Painting,
-    User
+    UserModel
   },
   //  graphqlEndpoint: '/',   // uncomment this to send the app to: 4000/
   graphiql: {

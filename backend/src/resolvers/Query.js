@@ -40,9 +40,10 @@ export const Query = {
   artist: async (parent, { id }, { Painter }, info) => {
     return await Painter.findById(id);
   },
-  user: async (parent, { token }, { User }, info) => {
+  user: async (parent, { token }, { UserModel }, info) => {
     try {
-      return await User.findById(verifyToken(token)._id, "-hashed_pwd");
+      // console.log(await UserModel.findById(verifyToken(token)._id, "-hashed_pwd").populate('likes'));
+      return await UserModel.findById(verifyToken(token)._id, "-hashed_pwd").populate('likes');
     } catch(e) {
       if (e=="JsonWebTokenError: invalid token") { return; }
       throw e;
