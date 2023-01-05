@@ -45,4 +45,15 @@ export const SINGLE_ARWORK_QUERY = gql`
             priceCentimeter
         }
     }
-`
+`;
+
+export const SINGLE_ARTIST_QUERY = gql`
+    query artist($id: ID!){
+        artist(id: $id){
+            id
+            name
+            imgURL
+            description
+        }
+    }
+`;
